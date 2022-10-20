@@ -23,7 +23,7 @@ export const postNewProduct = async (product) => {
     body: JSON.stringify(product),
   });
 
-  // return response;
+  return response;
 };
 
 // export const deleteProductById = async (id) => {
