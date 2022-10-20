@@ -18,18 +18,18 @@ export const postNewProduct = async (product) => {
   const response = await fetch(PRODUCTS_URL, {
     method: "POST",
     headers: {
-      "content-Type": "application/json",
+      "Content-Type": "application/json",
     },
     body: JSON.stringify(product),
   });
 
-  return response;
+  // return response;
 };
 
-export const deleteProductById = async (id) => {
-  const response = await fetch(PRODUCTS_URL + id, {
-    method: "DELETE",
-  });
+// export const deleteProductById = async (id) => {
+//   const response = await fetch(PRODUCTS_URL + id, {
+//     method: "DELETE",
+//   });
 
-  return response;
-};
+//   return response;
+// };
