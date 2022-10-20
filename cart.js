@@ -2,15 +2,15 @@ let cart = JSON.parse(localStorage.getItem("cart"));
 
 const createTable = () => {
   document.querySelector(".tableProd").innerHTML = `
-	<table class="table">
-		<tr>
-			<th>Image</th>
-			<th>Name</th>
-			<th>Price</th>
-			<th>Quantity</th>
-			<th>Remove</th>
-		</tr>
-	</table>`;
+	  <table class="table">
+		  <tr>
+			  <th>Image</th>
+			  <th>Name</th>
+			  <th>Price</th>
+			  <th>Quantity</th>
+			  <th>Remove</th>
+		  </tr>
+	  </table>`;
   const table = document.querySelector(".table");
   cart.forEach((product) => {
     let row = table.insertRow(1);
@@ -19,13 +19,63 @@ const createTable = () => {
     let cell3 = row.insertCell(2);
     let cell4 = row.insertCell(3);
     let cell5 = row.insertCell(4);
-    let cell6 = row.insertCell(5);
-    cell1.innerHTML = `<a href="details.html?id=${product.id}"><img class="cartImg" src=${product.product.imgURL}></img></a>`;
+    cell1.innerHTML = `<a href="details.html?product_id=${product.id}"><img class="cartImg" src=${product.imgURL}></img></a>`;
     cell2.textContent = product.name;
-    cell3.innerHTML = `<p class="greenText">$${product.price}</p>`;
+    cell3.innerHTML = `<p class="greenText">${product.price} Ron</p>`;
     cell4.innerHTML = `<i class="fa-solid fa-minus redText marginRight" data-product-id=${product.id}>
-			</i>${product.items}<i class="fa-solid fa-plus greenText marginLeftS" data-product-id=${product.id}></i>`;
+			  </i>${product.items}<i class="fa-solid fa-plus greenText marginLeftS" data-product-id=${product.id}></i>`;
     cell5.innerHTML = `<a class="redBtn remove" data-product-id=${product.id}>
-			<i class="fa-solid fa-trash marginRight remove" data-product-id=${product.id}></i>Remove</a>`;
+			  <i class="fa-solid fa-trash marginRight remove" data-product-id=${product.id}></i>Remove</a>`;
   });
 };
+createTable();
+
+let buyTable = () => {
+  let total = 0;
+  let items = 0;
+  if (cart) {
+    cart.forEach((book) => {
+      total += Number(book.price) * book.items;
+      items += book.items;
+    });
+  }
+  document.querySelector(
+    ".items"
+  ).innerHTML = `Items: <span class="greenText">${items}</span>`;
+  document.querySelector(
+    ".totalPrice"
+  ).innerHTML = `Total Price: <span class="greenText">${total} Ron</span>`;
+};
+
+window.addEventListener("load", () => {
+  buyTable();
+  if (cart.length > 0) createTable();
+});
+
+document.querySelector(".tableProd").addEventListener("click", (e) => {
+  const bookInBasket = cart.find(
+    (book) => book.id === e.target.getAttribute("data-product-id")
+  );
+
+  if (e.target.classList.contains("fa-plus")) {
+    if (bookInBasket.items < bookInBasket.stock) {
+      bookInBasket.items++;
+      createTable();
+      buyTable();
+    } else if (bookInBasket.items === bookInBasket.stock) {
+      alert("Stock limit reached.");
+    }
+  } else if (e.target.classList.contains("fa-minus")) {
+    if (bookInBasket.items > 1) {
+      bookInBasket.items--;
+      createTable();
+      buyTable();
+    }
+  } else if (e.target.classList.contains("remove")) {
+    cart = cart.filter((product) => product.id != bookInBasket.id);
+    createTable();
+    if (cart.length === 0) document.querySelector(".table").remove();
+    buyTable();
+  }
+  localStorage.setItem("cart", JSON.stringify(cart));
+});

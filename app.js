@@ -30,10 +30,11 @@ const createInnerHTMLforPriceFilter = (minPrice, maxPrice) => {
   const innerHTMLFilterCheckBoxes = filterItemsIntervals
     .map(
       (interval) =>
-        `<div>
-        <label> ${interval.start} - ${interval.end}</label> Ron
-        <input type="checkbox"> 
-      </div>
+        ` 
+    <div>
+    <label>${interval.start} - ${interval.end}</label> Ron
+    <input type="checkbox">
+    </div>
     `
     )
     .join("");
@@ -106,3 +107,25 @@ const filterByPrice = (event) => {
       });
   }
 };
+
+document
+  .getElementById("price-filter")
+  .addEventListener("click", filterByPrice);
+
+const addProductToCart = async (id) => {
+  let products = JSON.parse(localStorage.getItem("products"));
+  if (products == null) products = [];
+  products.push(id);
+
+  localStorage.setItem("products", JSON.stringify(products));
+};
+
+const handleActions = (event) => {
+  if (event.target.classList.contains("add-to-cart")) {
+    const productId = event.target.id;
+    addProductToCart(productId);
+  }
+};
+document
+  .querySelector(".products-container")
+  .addEventListener("click", handleActions);

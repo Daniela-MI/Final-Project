@@ -247,7 +247,6 @@ h3 {
 .success {
   background-color: green;
 }
-
 /* Cart page */
 
 .cart {
@@ -308,4 +307,19 @@ hr {
   height: 2px;
   background-color: #222222;
   border: none;
+}
+.largeFont {
+  font-size: 1.4rem;
+}
+.confirm {
+  display: none;
+  position: absolute;
+  width: 400px;
+  padding: 2rem;
+  background-color: #00bc8ddc;
+  text-align: center;
+  border-radius: 50px;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
