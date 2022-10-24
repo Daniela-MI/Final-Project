@@ -26,10 +26,10 @@ export const postNewProduct = async (product) => {
   return response;
 };
 
-// export const deleteProductById = async (id) => {
-//   const response = await fetch(PRODUCTS_URL + id, {
-//     method: "DELETE",
-//   });
+export const deleteProductById = async (id) => {
+  const response = await fetch(PRODUCTS_URL + id, {
+    method: "DELETE",
+  });
 
-//   return response;
-// };
+  return response;
+};

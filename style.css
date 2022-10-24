@@ -238,15 +238,17 @@ h3 {
 .success {
   background-color: green;
 }
-/* #products-list {
+#products-list {
   margin: auto;
-  margin-bottom: 10px;
-  width: 85%;
+  width: 83%;
   border: 2px solid rgb(125, 116, 107);
   border-radius: 5px;
   padding: 5px;
-} */
-
+}
+.table.table.table-white {
+  width: 100%;
+  margin: 0px;
+}
 /* Cart page */
 
 .cart {
@@ -269,7 +271,8 @@ h3 {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
 }
 .table th {
-  background-color: #3498db;
+  background-color: rgba(109, 156, 109, 0.505);
+  color: rgb(71, 50, 17);
 }
 .table th,
 .table td {
@@ -279,7 +282,8 @@ h3 {
   border-bottom: thin solid #dddddd;
 }
 .table tr:nth-of-type(odd) {
-  background-color: #375a7f;
+  background-color: rgba(195, 214, 195, 0.505);
+  color: rgb(71, 50, 17);
 }
 
 /* Form page */
