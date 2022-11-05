@@ -4,7 +4,7 @@ const createCardFromProduct = (product) => {
 <img src='${product.imgURL}' />
 <div class="card-body">
 <p>${product.price} Ron</p>
-<a href="details.html?product_id=${product.id}" class="btn btn-success">Details</a>
+<a href="details.html?product_id=${product.id}" class="btn btn-success">Detalii</a>
 </div>
 </div>`;
 };
@@ -32,7 +32,7 @@ const createInnerHTMLforPriceFilter = (minPrice, maxPrice) => {
       (interval) =>
         ` 
     <div>
-    <label>${interval.start} - ${interval.end}</label> Ron
+    <labelFilter>${interval.start} - ${interval.end}</labelFilter> Ron
     <input type="checkbox">
     </div>
     `

@@ -4,11 +4,11 @@ const createTable = () => {
   document.querySelector(".tableProd").innerHTML = `
 	  <table class="table">
 		  <tr>
-			  <th>Image</th>
-			  <th>Name</th>
-			  <th>Price</th>
-			  <th>Quantity</th>
-			  <th>Remove</th>
+			  <th>Imagine</th>
+			  <th>Nume</th>
+			  <th>Preț/Bucata</th>
+			  <th>Cantitate</th>
+			  <th>Șterge</th>
 		  </tr>
 	  </table>`;
   const table = document.querySelector(".table");
@@ -25,7 +25,7 @@ const createTable = () => {
     cell4.innerHTML = `<i class="fa-solid fa-minus redText marginRight" data-product-id=${product.id}>
 			  </i>${product.items}<i class="fa-solid fa-plus greenText marginLeftS" data-product-id=${product.id}></i>`;
     cell5.innerHTML = `<a class="redBtn remove" data-product-id=${product.id}>
-			  <i class="fa-solid fa-trash marginRight remove" data-product-id=${product.id}></i>Remove</a>`;
+			  <i class="fa-solid fa-trash marginRight remove" data-product-id=${product.id}></i></a>`;
   });
 };
 createTable();
@@ -34,17 +34,17 @@ let buyTable = () => {
   let total = 0;
   let items = 0;
   if (cart) {
-    cart.forEach((book) => {
-      total += Number(book.price) * book.items;
-      items += book.items;
+    cart.forEach((product) => {
+      total += Number(product.price) * product.items;
+      items += product.items;
     });
   }
   document.querySelector(
     ".items"
-  ).innerHTML = `Items: <span class="greenText">${items}</span>`;
+  ).innerHTML = `Produse: <span class="greenText">${items}</span>`;
   document.querySelector(
     ".totalPrice"
-  ).innerHTML = `Total Price: <span class="greenText">${total} Ron</span>`;
+  ).innerHTML = `Preț Total: <span class="greenText">${total} Ron</span>`;
 };
 
 window.addEventListener("load", () => {
@@ -53,26 +53,26 @@ window.addEventListener("load", () => {
 });
 
 document.querySelector(".tableProd").addEventListener("click", (e) => {
-  const bookInBasket = cart.find(
-    (book) => book.id === e.target.getAttribute("data-product-id")
+  const productInBasket = cart.find(
+    (product) => product.id === e.target.getAttribute("data-product-id")
   );
 
   if (e.target.classList.contains("fa-plus")) {
-    if (bookInBasket.items < bookInBasket.stock) {
-      bookInBasket.items++;
+    if (productInBasket.items < productInBasket.stock) {
+      productInBasket.items++;
       createTable();
       buyTable();
-    } else if (bookInBasket.items === bookInBasket.stock) {
-      alert("Stock limit reached.");
+    } else if (productInBasket.items === productInBasket.stock) {
+      alert("Ai atins numărul maxim de produse disponibile.");
     }
   } else if (e.target.classList.contains("fa-minus")) {
-    if (bookInBasket.items > 1) {
-      bookInBasket.items--;
+    if (productInBasket.items > 1) {
+      productInBasket.items--;
       createTable();
       buyTable();
     }
   } else if (e.target.classList.contains("remove")) {
-    cart = cart.filter((product) => product.id != bookInBasket.id);
+    cart = cart.filter((product) => product.id != productInBasket.id);
     createTable();
     if (cart.length === 0) document.querySelector(".table").remove();
     buyTable();

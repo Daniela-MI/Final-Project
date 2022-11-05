@@ -42,9 +42,12 @@
           <a href="./index.html">TeaHi<i class="fa-brands fa-pagelines"></i></a>
         </div>
         <div class="menu">
+          <a href="./contact.html"
+            ><i class="fa-solid fa-envelope-open-text"></i> Contat</a
+          >
           <a href="./admin.html"><i class="fa-solid fa-user"></i> Admin </a>
           <a href="./cart.html"
-            ><i class="fa-solid fa-bag-shopping"></i> Cart
+            ><i class="fa-solid fa-bag-shopping"></i> Coșul meu
           </a>
         </div>
       </div>
@@ -63,49 +66,32 @@
             <h4>Adaugare produs nou</h4>
             <div>
               <button id="add-product" class="btn btn-success">Adauga</button>
-              <button id="cancel" class="btn btn-danger">Cancel</button>
+              <button id="edit-product" class="btn btn-warning">
+                Modifică
+              </button>
+              <!-- <button id="cancel" class="btn btn-danger">Anuleaza</button> -->
             </div>
           </div>
           <div class="add-product-form">
-            <div class="item">
-              <div class="label-item">
-                <label for="image">Imagine</label>
-              </div>
-              <div class="input-item">
-                <input type="text" name="" id="image" />
-              </div>
+            <div>
+              <label for="image">Imagine</label>
+              <input type="text" name="" id="image" class="boxLength" />
             </div>
-            <div class="item">
-              <div class="label-item">
-                <label for="name">Nume</label>
-              </div>
-              <div class="input-item">
-                <input type="text" name="" id="name" />
-              </div>
+            <div>
+              <label for="name">Nume</label>
+              <input type="text" name="" id="name" class="boxLength" />
             </div>
-            <div class="item">
-              <div class="label-item">
-                <label for="description">Descriere</label>
-              </div>
-              <div class="input-item">
-                <input type="text" id="description" />
-              </div>
+            <div>
+              <label for="description">Descriere</label>
+              <input type="text" id="description" class="boxLength" />
             </div>
-            <div class="item">
-              <div class="label-item">
-                <label for="price">Pret</label>
-              </div>
-              <div class="input-item">
-                <input type="text" id="price" />
-              </div>
+            <div>
+              <label for="price">Preț</label>
+              <input type="text" id="price" class="boxLength" />
             </div>
-            <div class="item">
-              <div class="label-item">
-                <label for="stock">Stock</label>
-              </div>
-              <div class="input-item">
-                <input type="text" id="stock" />
-              </div>
+            <div>
+              <label for="stock">În stoc</label>
+              <input type="text" id="stock" class="boxLength" />
             </div>
           </div>
         </div>
@@ -114,16 +100,17 @@
             <thead>
               <tr>
                 <th scope="col">#</th>
-                <th scope="col">Image</th>
-                <th scope="col">Name</th>
-                <th scope="col">Price</th>
-                <th scope="col">Stock</th>
+                <th scope="col">Imagine</th>
+                <th scope="col">Nume</th>
+                <th scope="col">Preț</th>
+                <th scope="col">În stoc</th>
                 <th scope="col"></th>
               </tr>
             </thead>
             <tbody id="products-table-body"></tbody>
           </table>
         </div>
+        <p class="confirm largeFont"></p>
       </div>
     </div>
     <script type="module" src="./admin.js"></script>

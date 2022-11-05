@@ -12,6 +12,10 @@
   background-attachment: fixed;
 }
 
+a {
+  color: rgb(72, 117, 72);
+  margin-right: 20px;
+}
 .motto {
   background-color: rgb(195, 214, 195);
   color: rgb(255, 255, 255);
@@ -23,7 +27,9 @@
 h2 {
   font-size: 40px;
 }
-
+h4 {
+  color: rgb(71, 50, 17);
+}
 .navbar {
   margin: 10px;
   height: auto;
@@ -58,6 +64,8 @@ h2 {
   /* height: 400px;
   width: 280px; */
   font-size: 18px;
+  /* box-shadow: 10px 5px 5px rgb(230, 229, 229); */
+  margin-bottom: 10px;
 }
 
 .products-container,
@@ -170,7 +178,17 @@ h3 {
   text-align: left;
 }
 
+/* .addProd {
+  background-color: rgb(195, 214, 195);
+  color: rgb(71, 50, 17);
+} */
+
 /* Admin page */
+
+h1 {
+  text-align: center;
+  margin: auto;
+}
 .add-product-container {
   display: flex;
   flex-direction: column;
@@ -178,6 +196,7 @@ h3 {
   width: 62%;
   margin: auto;
   margin-top: 40px;
+  margin-bottom: 40px;
   border: 2px solid rgb(125, 116, 107);
   border-radius: 5px;
   padding: 20px;
@@ -206,6 +225,13 @@ h3 {
   gap: 10px;
 }
 
+label {
+  width: 100px;
+}
+.boxLength {
+  width: 80%;
+  border-radius: 7px;
+}
 .add-product-form .item {
   width: 100%;
   display: flex;
@@ -240,7 +266,7 @@ h3 {
 }
 #products-list {
   margin: auto;
-  width: 83%;
+  width: 68%;
   border: 2px solid rgb(125, 116, 107);
   border-radius: 5px;
   padding: 5px;
@@ -251,12 +277,20 @@ h3 {
 }
 /* Cart page */
 
+.cart-bag {
+  text-align: left;
+  margin: auto;
+  margin-bottom: 50px;
+  color: rgb(71, 50, 17);
+}
+
 .cart {
   margin: 10px auto 100px auto;
 }
 .cartImg {
   width: 50px;
 }
+
 .fa-plus:hover,
 .fa-minus:hover {
   cursor: pointer;
@@ -266,9 +300,9 @@ h3 {
   width: 80vw;
   text-transform: capitalize;
   border-collapse: collapse;
-  margin: 40px 0;
   font-size: 0.9em;
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
+  margin: auto;
 }
 .table th {
   background-color: rgba(109, 156, 109, 0.505);
@@ -286,6 +320,17 @@ h3 {
   color: rgb(71, 50, 17);
 }
 
+.items .totalPrice {
+  border: 2px solid rgb(125, 116, 107);
+}
+.buyProdBtn {
+  border: 1px solid rgb(112, 61, 3);
+  background-color: rgba(190, 105, 2, 0.694);
+  color: white;
+  border-radius: 7%;
+  padding: 10px;
+  margin: 10px;
+}
 /* Form page */
 .form input {
   margin: 10px 0;
@@ -319,11 +364,12 @@ hr {
   display: none;
   position: absolute;
   width: 400px;
-  padding: 2rem;
-  background-color: #00bc8ddc;
+  padding: 1.5rem;
+  background-color: rgb(195, 214, 195);
+  border: 2px solid rgba(7, 51, 7, 0.644);
   text-align: center;
-  border-radius: 50px;
-  top: 50%;
+  border-radius: 10px;
+  top: 15%;
   left: 50%;
   transform: translate(-50%, -50%);
 }

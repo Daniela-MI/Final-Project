@@ -1,20 +1,10 @@
-import {
-  postNewProduct,
-  getAllProducts,
-  deleteProductById,
-} from "./products.js";
-import { showConfirmationMessage } from "./utils.js";
+import { getAllProducts, deleteProductById } from "./products.js";
 
-const imageInputElement = document.querySelector(".add-product-form #image");
-const nameInputElement = document.querySelector(".add-product-form #name");
-const descriptionInputElement = document.querySelector(
-  ".add-product-form #description"
-);
-const priceInputElement = document.querySelector(".add-product-form #price");
-const stockInputElement = document.querySelector(".add-product-form #stock");
-// const searchParamString = window.location.search;
-// const searchParams = new URLSearchParams(searchParamString);
-// const productId = searchParams.get("productId");
+const productURL = "https://632214e5fd698dfa2906bdbf.mockapi.io/Products/";
+let productId;
+let response;
+const confirm = document.querySelector(".confirm");
+
 const populateProductsTable = async () => {
   const products = await getAllProducts();
   // console.log(products);
@@ -32,8 +22,10 @@ const populateProductsTable = async () => {
           <button id="${product.id}" class="btn btn-danger">
             <i class="fa-regular fa-trash-can"></i>
           </button>
-          <button class="btn btn-warning">
-          <i class="fa-solid fa-pen"></i> </button>
+          <button class="btn btn-warning editBtn" data-id="${product.id}">
+          <i class="fa-solid fa-pen editBtn" data-id="${
+            product.id
+          }"></i> </button>
         </td>
       </tr>`
     )
@@ -44,71 +36,87 @@ const populateProductsTable = async () => {
 
 window.addEventListener("DOMContentLoaded", populateProductsTable);
 
-const addProduct = async () => {
-  const product = {
-    image: imageInputElement.value,
-    name: nameInputElement.value,
-    description: descriptionInputElement.value,
-    price: priceInputElement.value,
-    stock: stockInputElement.value,
-  };
-  const response = await postNewProduct(product);
-  //  INLOCUIT DE LINIILE 1-4 DIN UTILS.JS
-  //   if (response.ok === false) {
-  //     document.querySelector(".add-product-message").innerHTML =
-  //       "ERROR! - DE MODIFICAT MESAJUL";
-  //   } else {
-  //     document.querySelector(".add-product-message").innerHTML =
-  //       "PRODUCT SUCCESSFULLY ADDED - DE MODIFICAT MESAJUL";
-  //     document.querySelector(".add-product-message").classList.toggle("hidden");
-
-  showConfirmationMessage(
-    "add-product-message",
-    response,
-    "The product has been successfully added!"
-  );
+const addOrEditProduct = async (URL, methodHTTP, msgConfirm) => {
+  const imageInputElement = document.querySelector("#image");
+  const nameInputElement = document.querySelector("#name");
+  const descriptionInputElement = document.querySelector("#description");
+  const priceInputElement = document.querySelector("#price");
+  const stockInputElement = document.querySelector("#stock");
+  response = await fetch(URL, {
+    method: methodHTTP,
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      imgURL: imageInputElement.value,
+      name: nameInputElement.value,
+      description: descriptionInputElement.value,
+      price: priceInputElement.value,
+      stock: stockInputElement.value,
+    }),
+  });
+  let data = await response.json();
+  console.log(msgConfirm, data);
+  confirmMsg(msgConfirm);
+  populateProductsTable();
 };
 
-document.getElementById("add-product").addEventListener("click", addProduct);
+const confirmMsg = (string) => {
+  if (response.ok) {
+    confirm.textContent = `Produsul a fost ${string}.`;
+  } else {
+    confirm.classList.add("redBg");
+    confirm.textContent =
+      "Hei, a aparut o problema. Te rugăm să încerci din nou.";
+  }
+  confirm.style.display = "block";
+  setTimeout(() => {
+    confirm.style.display = "none";
+  }, 3000);
+};
+
+document
+  .getElementById("add-product")
+  .addEventListener("click", () =>
+    addOrEditProduct(productURL, "POST", "adăugat")
+  );
+
+document
+  .getElementById("edit-product")
+  .addEventListener("click", () =>
+    addOrEditProduct(`${productURL}${productId}`, "PUT", "modificat")
+  );
 
 document.getElementById("add-new-product").addEventListener("click", () => {
   document.querySelector(".add-product-container").classList.toggle("hidden");
 });
 
-// // edit cart
+const editProduct = async (e) => {
+  document.querySelector(".add-product-container").classList.remove("hidden");
 
-// const showtableContent = async () => {
-//   // Show product
-//   if (productId) {
-//     const result = await fetch(
-//       `https://632214e5fd698dfa2906bdbf.mockapi.io/Products/${productId}`
-//     );
-//     product = await result.json();
-//   }
-//   document.querySelector(".tableContent").innerHTML = showtableContent(product);
-
-//   // Event listener for edit book button
-//   document.querySelector(".btn-warning").addEventListener("click", editProduct);
-// };
-// window.addEventListener("DOMContentLoaded", showtableContent);
-
-// const editProduct = async () => {
-//   let response = await fetch(`${productURL}/${productId}`, {
-//     method: "PUT",
-//     headers: { "Content-Type": "application/json" },
-//     body: JSON.stringify({
-//       image: document.querySelector("#inputImage").value,
-//       name: document.querySelector("#inputName").value,
-//       description: document.querySelector("#inputDescription").value,
-//       price: document.querySelector("#inputPrice").value,
-//       stock: document.querySelector("#inputStock").value,
-//     }),
-//   });
-//   let data = await response.json();
-//   console.log(data);
-// };
-
-// // edit card end
+  const productURL = `https://632214e5fd698dfa2906bdbf.mockapi.io/Products/${productId}`;
+  const result = await fetch(productURL);
+  let product = await result.json();
+  document.querySelector(".add-product-form").innerHTML = `
+            <div>
+              <label for="image" >Imagine</label>
+              <input type="text" name="" id="image" class="boxLength" value='${product.imgURL}' />
+            </div>
+            <div>
+              <label for="name">Nume</label>
+              <input type="text" name="" id="name" class="boxLength" value='${product.name}' />
+            </div>
+            <div>
+              <label for="description">Descriere</label>
+              <input type="text" id="description" class="boxLength" value="${product.description}" />
+            </div>
+            <div>
+              <label for="price">Preț</label>
+              <input type="text" id="price" class="boxLength" value="${product.price}" />
+            </div>
+            <div>
+              <label for="stock">În stoc</label>
+              <input type="text" id="stock" class="boxLength" value='${product.stock}' />
+            </div>`;
+};
 
 const handleProducts = async (event) => {
   if (event.target.classList.contains("fa-trash-can")) {
@@ -118,6 +126,9 @@ const handleProducts = async (event) => {
     if (response.ok) {
       await populateProductsTable();
     }
+  } else if (event.target.classList.contains("editBtn")) {
+    productId = event.target.dataset.id;
+    editProduct();
   }
 };
 

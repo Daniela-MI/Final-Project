@@ -12,22 +12,22 @@ const showProduct = async () => {
 	<img class="productImage" src='${product.imgURL}'/>
 	<div class="cardDetails1"> 
 	   <div class="rightSide description">
-			<p class="descrText"><b>Name:</b> ${product.name}</p>
-			<p class="descrText"><b>Price:</b> ${product.price} Ron</p>
+			<p class="descrText"><b>Nume:</b> ${product.name}</p>
+			<p class="descrText"><b>Preț:</b> ${product.price} Ron</p>
+      <p class="descrText"><b>În stoc:</b> ${product.stock}</p>
 			</span></p>
-			<p class="descrText"><b>In stock:</b> ${product.description}</p>
 			<form onsubmit="return false">
-				<p class="descrText"><b>Quantity:</b>
+				<p class="descrText"><b>Cantitate:</b>
 					<input id="input-quantity" type="number" value="1" min="1" max="${product.stock}" style="width:50px">
 				</p>
 			  	<button id=${productId} class="goldBtn addToCart" type="submit">
-			  		<i class="fa-solid fa-bag-shopping"></i>Add to cart
+			  		<i class="fa-solid fa-bag-shopping"></i>Adaugă în coș
 				</button>
 			   	</div>
 			</form>
 		</div>
 	</div>
-	<div class="cardDetails2"> <p class="descrText1"><b>Description:</b> ${product.description}</p></div>`;
+	<div class="cardDetails2"> <p class="descrText1"><b>Descriere:</b> ${product.description}</p></div>`;
   document.querySelector(".product-details").innerHTML = productCardDetails;
 };
 
@@ -58,6 +58,6 @@ document.querySelector(".product-details").addEventListener("click", (e) => {
     document.querySelector(".confirm").style.display = "block";
     setTimeout(() => {
       document.querySelector(".confirm").style.display = "none";
-    }, 1000);
+    }, 3000);
   }
 });
