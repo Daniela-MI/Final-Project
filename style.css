@@ -17,7 +17,6 @@ a {
   margin-right: 20px;
 }
 .motto {
-  background-color: rgb(195, 214, 195);
   color: rgb(255, 255, 255);
   font-family: "Indie Flower", cursive;
   text-align: center;
@@ -31,7 +30,8 @@ h4 {
   color: rgb(71, 50, 17);
 }
 .navbar {
-  margin: 10px;
+  background-color: rgb(235, 232, 232);
+  margin-bottom: 50px;
   height: auto;
   display: flex;
   justify-content: space-between;
@@ -41,7 +41,7 @@ h4 {
 }
 
 .logo a {
-  font-size: 70px;
+  font-size: 50px;
   font-family: "Indie Flower", cursive;
   color: rgb(109, 156, 109);
   margin-left: 40px;
@@ -53,6 +53,19 @@ h4 {
   margin-right: 100px;
 }
 
+/* HOME */
+.teaHi {
+  width: 100%;
+  margin: auto;
+}
+#cupTea {
+  display: flex;
+  justify-content: center;
+}
+#home {
+  text-align: center;
+}
+/* CEAI */
 .card {
   background-color: rgba(255, 255, 255, 0.694);
   border: 1px solid rgb(125, 116, 107);

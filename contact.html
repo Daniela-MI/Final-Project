@@ -43,20 +43,21 @@
 
   <body>
     <div id="teaApp">
-      <div class="motto">
-        <h2>Just let our tea, relax your body</h2>
-      </div>
       <div class="navbar">
         <div class="logo">
-          <a href="./index.html">TeaHi<i class="fa-brands fa-pagelines"></i></a>
+          <a href="./home.html">TeaHi<i class="fa-brands fa-pagelines"></i></a>
         </div>
+        <!-- <div class="motto">
+          <h2>Just let our tea, relax your body</h2>
+        </div> -->
         <div class="menu">
+          <a href="./index.html"><i class="fa-solid fa-mug-hot"></i> Ceai</a>
           <a href="./contact.html"
-            ><i class="fa-solid fa-envelope-open-text"></i> Contat</a
+            ><i class="fa-solid fa-envelope-open-text"></i> Contact</a
           >
-          <a href="./admin.html"><i class="fa-solid fa-user"></i> Admin </a>
+          <a href="./admin.html"><i class="fa-solid fa-user"></i>Admin </a>
           <a href="./cart.html"
-            ><i class="fa-solid fa-bag-shopping"></i> Coșul meu
+            ><i class="fa-solid fa-bag-shopping"></i>Coșul meu
           </a>
         </div>
       </div>
@@ -72,7 +73,7 @@
               type="text"
               pattern="[a-zA-Z -]{3,}"
               required
-              placeholder="First Name"
+              placeholder="Nume"
             />
 
             <label for="lastName"></label>
@@ -82,7 +83,26 @@
               type="text"
               pattern="[a-zA-Z -]{3,}"
               required
-              placeholder="Last Name"
+              placeholder="Prenume"
+            />
+            <label for="email"></label>
+            <input
+              class="width"
+              id="email"
+              type="email"
+              pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$"
+              required
+              placeholder="Email"
+            />
+
+            <label for="phoneNumber"></label>
+            <input
+              class="width"
+              id="phoneNumber"
+              type="text"
+              pattern="[0][0-9]{5,}"
+              required
+              placeholder="Telefon"
             />
 
             <textarea
@@ -92,10 +112,10 @@
               rows="5"
               minlength="7"
               required
-              placeholder="Your message here..."
+              placeholder="Mesajul tău aici..."
             ></textarea>
 
-            <button type="submit" id="sub">Send message</button>
+            <button type="submit" id="sub">Trimite mesajul</button>
           </form>
         </div>
 
