@@ -5,7 +5,8 @@ export const showConfirmationMessage = (className, response, message) => {
   messageContainer.classList.remove("hidden");
 
   if (!response.ok) {
-    messageContainer.innerHTML = "Something went wrong";
+    messageContainer.innerHTML =
+      "A apărut o prpblemă. Te rugăm sa încerci din nou.";
     messageContainer.classList.add("error");
   } else {
     messageContainer.innerHTML = message;

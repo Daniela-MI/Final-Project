@@ -64,8 +64,7 @@ const confirmMsg = (string) => {
     confirm.textContent = `Produsul a fost ${string}.`;
   } else {
     confirm.classList.add("redBg");
-    confirm.textContent =
-      "Hei, a aparut o problema. Te rugăm să încerci din nou.";
+    confirm.textContent = "A aparut o problema. Te rugăm să încerci din nou.";
   }
   confirm.style.display = "block";
   setTimeout(() => {

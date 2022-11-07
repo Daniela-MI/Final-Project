@@ -16,6 +16,7 @@ a {
   color: rgb(72, 117, 72);
   margin-right: 20px;
 }
+
 .motto {
   color: rgb(255, 255, 255);
   font-family: "Indie Flower", cursive;
@@ -26,17 +27,17 @@ a {
 h2 {
   font-size: 40px;
 }
+
 h4 {
   color: rgb(71, 50, 17);
 }
+
 .navbar {
   background-color: rgb(235, 232, 232);
   margin-bottom: 50px;
   height: auto;
   display: flex;
   justify-content: space-between;
-  /* flex-direction: row; */
-  /* gap: 20px; */
   font-size: 20px;
 }
 
@@ -53,31 +54,30 @@ h4 {
   margin-right: 100px;
 }
 
-/* HOME */
+/* HOME PAGE*/
 .teaHi {
   width: 100%;
   margin: auto;
 }
+
 #cupTea {
   display: flex;
   justify-content: center;
 }
+
 #home {
   text-align: center;
 }
-/* CEAI */
+
+/* CEAI PAGE*/
+
 .card {
   background-color: rgba(255, 255, 255, 0.694);
   border: 1px solid rgb(125, 116, 107);
   border-radius: 5px;
-  /* display: flex;
-  flex-direction: column; */
   text-align: center;
   color: rgb(71, 50, 17);
-  /* height: 400px;
-  width: 280px; */
   font-size: 18px;
-  /* box-shadow: 10px 5px 5px rgb(230, 229, 229); */
   margin-bottom: 10px;
 }
 
@@ -98,10 +98,6 @@ h4 {
   flex: 0.6;
 }
 
-/* .card-img-top {
-  text-align: center;
-} */
-
 .card a.btn {
   align-self: flex-start;
   margin: 5px;
@@ -120,11 +116,8 @@ h4 {
 i.fa-solid {
   margin-right: 10px;
 }
-/* .card-title {
-  height: 100px;
-}
-*/
-/* Details page */
+
+/* DETAILS PAGE */
 
 .product-details {
   display: grid;
@@ -149,7 +142,6 @@ i.fa-solid {
 }
 .cardDetails1 {
   grid-area: cardDetails1;
-  /* max-width: 100%; */
   text-align: justify;
   margin: 30px;
   font-size: larger;
@@ -157,17 +149,10 @@ i.fa-solid {
 
 .cardDetails2 {
   grid-area: cardDetails2;
-  /* max-width: 100%; */
   text-align: justify;
   margin: 10px;
   font-size: large;
 }
-/* .place {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  align-items: center;
-} */
 
 .card-body {
   text-align: center;
@@ -191,17 +176,13 @@ h3 {
   text-align: left;
 }
 
-/* .addProd {
-  background-color: rgb(195, 214, 195);
-  color: rgb(71, 50, 17);
-} */
-
-/* Admin page */
+/* ADMIN PAGE */
 
 h1 {
   text-align: center;
   margin: auto;
 }
+
 .add-product-container {
   display: flex;
   flex-direction: column;
@@ -214,6 +195,7 @@ h1 {
   border-radius: 5px;
   padding: 20px;
 }
+
 .admin-container .header,
 .admin-container .add-product-header {
   margin: auto;
@@ -241,10 +223,12 @@ h1 {
 label {
   width: 100px;
 }
+
 .boxLength {
   width: 80%;
   border-radius: 7px;
 }
+
 .add-product-form .item {
   width: 100%;
   display: flex;
@@ -267,16 +251,14 @@ label {
   display: none;
 }
 
-/* .add-product-container.hidden {
-  display: none;
-} */
-
 .error {
   background-color: red;
 }
+
 .success {
   background-color: green;
 }
+
 #products-list {
   margin: auto;
   width: 68%;
@@ -284,11 +266,13 @@ label {
   border-radius: 5px;
   padding: 5px;
 }
+
 .table.table.table-white {
   width: 100%;
   margin: 0px;
 }
-/* Cart page */
+
+/* CART PAGE */
 
 .cart-bag {
   text-align: left;
@@ -300,6 +284,7 @@ label {
 .cart {
   margin: 10px auto 100px auto;
 }
+
 .cartImg {
   width: 50px;
 }
@@ -317,17 +302,21 @@ label {
   box-shadow: 0 0 20px rgba(255, 255, 255, 0.5);
   margin: auto;
 }
+
 .table th {
   background-color: rgba(109, 156, 109, 0.505);
   color: rgb(71, 50, 17);
 }
+
 .table th,
 .table td {
   padding: 12px 15px;
 }
+
 .table tr {
   border-bottom: thin solid #dddddd;
 }
+
 .table tr:nth-of-type(odd) {
   background-color: rgba(195, 214, 195, 0.505);
   color: rgb(71, 50, 17);
@@ -336,6 +325,7 @@ label {
 .items .totalPrice {
   border: 2px solid rgb(125, 116, 107);
 }
+
 .buyProdBtn {
   border: 1px solid rgb(112, 61, 3);
   background-color: rgba(190, 105, 2, 0.694);
@@ -344,35 +334,27 @@ label {
   padding: 10px;
   margin: 10px;
 }
-/* Form page */
-.form input {
-  margin: 10px 0;
-}
 
-/* Tags */
 a {
   text-decoration: none;
 }
+
 p {
   margin: 0.5rem;
 }
+
 label {
   margin-top: 10px;
 }
-input[type="radio"] {
-  margin-right: 0.3rem;
-}
+
 textarea {
   margin: 10px 0;
 }
-hr {
-  height: 2px;
-  background-color: #222222;
-  border: none;
-}
+
 .largeFont {
   font-size: 1.4rem;
 }
+
 .confirm {
   display: none;
   position: absolute;
